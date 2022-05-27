@@ -15,20 +15,17 @@ CREATE TABLE animals (
   dob VARCHAR,
   animal_type VARCHAR,
   notes TEXT,
-  owner_id INTEGER NOT NULL,
-    FOREIGN KEY  (owner_id)
-      REFERENCES owners(id) ON DELETE CASCADE,
+  owner_id VARCHAR,
+    -- FOREIGN KEY  (owner_id)
+    --   REFERENCES owners(id) ON DELETE CASCADE,
   vet_id INTEGER NOT NULL,
     FOREIGN KEY  (vet_id)
-      REFERENCES vets(id) ON DELETE CASCADE,
+      REFERENCES vets(id) ON DELETE CASCADE
 );
 
 CREATE TABLE owners (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   name VARCHAR,
-  location_id INTEGER NOT NULL,
   contact VARCHAR
-
-
 
 );
