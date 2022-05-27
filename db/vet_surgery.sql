@@ -1,0 +1,34 @@
+PRAGMA FOREIGN_KEYS = ON;
+
+DROP TABLE owners;
+DROP TABLE animals;
+DROP TABLE vets;
+
+CREATE TABLE vets (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  name VARCHAR
+);
+
+CREATE TABLE animals (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  name VARCHAR,
+  dob VARCHAR,
+  animal_type VARCHAR,
+  notes TEXT,
+  owner_id INTEGER NOT NULL,
+    FOREIGN KEY  (owner_id)
+      REFERENCES owners(id) ON DELETE CASCADE,
+  vet_id INTEGER NOT NULL,
+    FOREIGN KEY  (vet_id)
+      REFERENCES vets(id) ON DELETE CASCADE,
+);
+
+CREATE TABLE owners (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  name VARCHAR,
+  location_id INTEGER NOT NULL,
+  contact VARCHAR
+
+
+
+);
