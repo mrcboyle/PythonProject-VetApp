@@ -7,8 +7,8 @@ import repositories.animal_repository as animal_repository
 # CREATE
 
 def save(animal):
-    sql = "INSERT INTO animals (name, dob, animal_type, notes, owner_id, vet_id) VALUES (?, ?, ?, ?, ?, ?) RETURNING *"
-    values = [animal.name, animal.dob, animal.animal_type, animal.notes, animal.owner_id, animal.vet_id]
+    sql = "INSERT INTO animals (name, dob, animal_type, notes, owner, vet_id) VALUES (?, ?, ?, ?, ?, ?) RETURNING *"
+    values = [animal.name, animal.dob, animal.animal_type, animal.notes, animal.owner, animal.vet_id]
     results = run_sql(sql, values)
     id = results[0]['id']
     # what does this part do????????    
@@ -24,7 +24,7 @@ def select_all():
 
     for row in results:
         # convert to python format below
-        animal = Animal(row['name'], row['dob'], row['animal_type'], row['notes'], row['owner_id'], row['vet_id'], row['id'])
+        animal = Animal(row['name'], row['dob'], row['animal_type'], row['notes'], row['owner'], row['vet_id'], row['id'])
         animals.append(animal)
     return animals
 
@@ -35,13 +35,13 @@ def select(id):
     result = run_sql(sql, values)[0]
 
     if result is not None:
-        animal = Animal(result['name'], result['dob'], result['animal_type'], result['notes'], result['owner_id'], result['vet_id'], result['id'])
+        animal = Animal(result['name'], result['dob'], result['animal_type'], result['notes'], result['owner'], result['vet_id'], result['id'])
     return animal
 
 # UPDATE
 
 def update(animal):
-    sql = "UPDATE animals SET (name, dob, animal_type, notes, owner_id, vet_id) = ( ?, ?, ?, ?, ?, ?) WHERE id = ?"
+    sql = "UPDATE animals SET (name, dob, animal_type, notes, owner, vet_id) = ( ?, ?, ?, ?, ?, ?) WHERE id = ?"
     values = [animal.name, animal.id]
     run_sql(sql, values)
 

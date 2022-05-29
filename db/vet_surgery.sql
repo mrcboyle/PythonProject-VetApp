@@ -15,7 +15,7 @@ CREATE TABLE animals (
   dob VARCHAR,
   animal_type VARCHAR,
   notes TEXT,
-  owner_id VARCHAR,
+  owner VARCHAR,
     -- FOREIGN KEY  (owner_id)
     --   REFERENCES owners(id) ON DELETE CASCADE,
   vet_id INTEGER NOT NULL,

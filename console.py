@@ -25,33 +25,33 @@ owner_repository.delete_all()
 for vet in vet_repository.select_all():
     print(vet.__dict__)
 
-# animal1 = Animal("Buffy", "21-03-2022", "Rabbit", "Second vaccinaton due")
+# animal1 = Animal("Buffy", "21-03-2022", "Rabbit", "Second vaccinaton due", "Penny Lane", 1)
 # animal_repository.save(animal1)
-# animal2 = Animal("Jarvis", "12-07-2016", "Dog", "Medication prescribed for heart murmur")
+# animal2 = Animal("Jarvis", "12-07-2016", "Dog", "Medication prescribed for heart murmur", "James Smith", 3)
 # animal_repository.save(animal2)
-# animal3 = Animal("Fred", "02-01-2014", "Cat", "Operation for furballs was successfull")
+# animal3 = Animal("Fred", "02-01-2014", "Cat", "Operation for furballs was successfull", "Don Maclean", 2)
 # animal_repository.save(animal3)
-# animal4 = Animal("Mia", "22-06-2010", "Dog", "Bloods taken. Awaiting results")
+# animal4 = Animal("Mia", "22-06-2010", "Dog", "Bloods taken. Awaiting results", "Barbara Woodhouse", 4)
 # animal_repository.save(animal4)
-# animal5 = Animal("Benji", "04-11-2019", "Dog", "Book in for follow-up visit")
+# animal5 = Animal("Benji", "04-11-2019", "Dog", "Book in for follow-up visit", "James Smith", 3)
 # animal_repository.save(animal5)
-# animal6 = Animal("Pip", "02-04-2022", "Hamster", "Clean bill of health")
+# animal6 = Animal("Pip", "02-04-2022", "Hamster", "Clean bill of health", "Penny Lane", 1)
 # animal_repository.save(animal6)
 
-# for animal in animal_repository.select_all():
-#     print(animal.__dict__)
+for animal in animal_repository.select_all():
+    print(animal.__dict__)
 
-owner1 = Owner("James Smith","jsmith69@gmail.com")
-owner_repository.save(owner1)
-owner2 = Owner("Penny Lane","penny.smith@hotmail.com")
-owner_repository.save(owner2)
-owner3 = Owner("Don Maclean","bigdonny@altavista.co.uk")
-owner_repository.save(owner3)
-owner4 = Owner("Barbara Woodhouse","woodybabs@outlook.com")
-owner_repository.save(owner4)
+# owner1 = Owner("James Smith","jsmith69@gmail.com")
+# owner_repository.save(owner1)
+# owner2 = Owner("Penny Lane","penny.smith@hotmail.com")
+# owner_repository.save(owner2)
+# owner3 = Owner("Don Maclean","bigdonny@altavista.co.uk")
+# owner_repository.save(owner3)
+# owner4 = Owner("Barbara Woodhouse","woodybabs@outlook.com")
+# owner_repository.save(owner4)
 
-for owner in owner_repository.select_all():
-    print(owner.__dict__)
+# for owner in owner_repository.select_all():
+#     print(owner.__dict__)
 
 # READ Test
 
