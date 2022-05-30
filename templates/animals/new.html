@@ -6,8 +6,8 @@
 <form action="/animals" method="post">
 
   <!-- Form: Animal Name -->
-  <label for="animal_name">Name of Animal</label>
-  <input type="text" name="animal_name" id="animal_name">
+  <label for="name">Name of Animal</label>
+  <input type="text" name="name" id="name">
   <br>
 
   <!-- Form: Animal Type -->
@@ -26,8 +26,8 @@
   <br>
 
   <!-- Form: Vet -->
-  <label for="vet">Select a vet:</label>
-  <select name="vet_id" id="vet">
+  <label for="vet_name">Select a vet:</label>
+  <select name="vet_name" id="vet">
     {% for vet in vets %}
     <option value="{{ vet.name }}">{{ vet.name }}</option>
     {% endfor %}

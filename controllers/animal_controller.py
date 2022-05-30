@@ -10,7 +10,8 @@ animals_blueprint = Blueprint("animals", __name__)
 @animals_blueprint.route("/animals")
 def animals():
     animals = animal_repository.select_all()
-    return render_template("animals/index.html", animals = animals)
+    vets = vet_repository.select_all()
+    return render_template("animals/index.html", animals = animals, vets = vets)
 
 @animals_blueprint.route("/animals/new", methods=['GET'])
 def new_animal():
@@ -25,21 +26,22 @@ def create_animal():
     animal_type     = request.form['animal_type']
     notes           = request.form['notes']
     owner           = request.form['owner']
-    vet             = vet_repository.select(request.form['vet_id'])
+    vet             = vet_repository.select_by_name(request.form['vet_name'])
     animal          = Animal(name, date_of_birth, animal_type, notes, owner, vet)
     animal_repository.save(animal)
-    return redirect('/animals/index.html')
+    return redirect('/animals')
 
 
 @animals_blueprint.route("/animals/<id>", methods=['GET'])
 def show_animal(id):
     animal = animal_repository.select(id)
+
     return render_template('animals/show.html', animal = animal)
 
 
 # EDIT
 # GET '/animals/<id>/edit'
-@animals_blueprint.route("/animals/<id>/edit", methods=['GET'])
+@animals_blueprint.route("/animals/edit/<id>", methods=['GET'])
 def edit_animal(id):
     animal = animal_repository.select(id)
     vets = vet_repository.select_all()
@@ -61,7 +63,7 @@ def update_animals(id):
 
 # DELETE
 # DELETE '/animals/<id>'
-@animals_blueprint.route("/animals/<id>/delete", methods=['POST'])
+@animals_blueprint.route("/animals/delete/<id>", methods=['POST'])
 def delete_animal(id):
     animal_repository.delete(id)
     return redirect('/animals')    

@@ -38,6 +38,16 @@ def select(id):
         vet = Vet(result['name'], result['id'])
     return vet
 
+
+def select_by_name(name):
+    owner = None
+    sql = "SELECT * FROM vets WHERE name = ?"
+    values = [name]
+    result = run_sql(sql, values)[0]
+
+    if result is not None:
+        vet = Vet(result['name'], result['id'])
+    return vet
 # UPDATE
 
 def update(vet):

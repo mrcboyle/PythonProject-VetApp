@@ -8,7 +8,8 @@ import repositories.animal_repository as animal_repository
 
 def save(animal):
     sql = "INSERT INTO animals (name, dob, animal_type, notes, owner, vet_id) VALUES (?, ?, ?, ?, ?, ?) RETURNING *"
-    values = [animal.name, animal.dob, animal.animal_type, animal.notes, animal.owner, animal.vet_id]
+    values = [animal.name, animal.dob, animal.animal_type, animal.notes, animal.owner, animal.vet.id]
+    print(values)
     results = run_sql(sql, values)
     id = results[0]['id']
     # what does this part do????????    
