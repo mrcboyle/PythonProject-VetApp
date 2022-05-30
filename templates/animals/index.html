@@ -3,40 +3,6 @@
 {% block content %}
 <h1>Animals</h1>
 
-<h4>Add an Animal</h4>
-
-<form action="/animals" method="post">
-
-  <label for="animal_name">Name of Animal</label>
-  <input type="text" name="animal_name" id="animal_name">
-  <br>
-  <label for="animal_type">Type of Animal</label>
-
-  <input type="text" name="animal_type" id="animal_type">
-  <br>
-  <label for="date_of_birth">Date of Birth</label>
-
-  <input type="text" name="date_of_birth" id="date_of_birth">
-  <br>
-  <label for="owner">Owner</label>
-
-  <input type="text" name="owner" id="owner">
-  <br>
-  <label for="vet">Select a vet:</label>
-  <select name="vet_id" id="vet">
-    {% for vet in vets %}
-    <option value="{{ vet.id }}">{{ vet.name }}</option>
-    {% endfor %}
-  </select>
-  <br>
-  <label for="notes">Notes</label>
-
-  <textarea name="notes" id="notes" cols="30" rows="10"></textarea>
-  <br>
-  <input class="btn btn--action" type='submit' value="Add Animal">
-  <br>
-</form>
-
 <table>
   <tr>
     <th>Name</th>
