@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div>
+  <p>{{animal.name}}</p>
+  <hr>
+  <p>{{animal.animal_type}}</p>
+  <p>{{animal.dob}}</p>
+  <p>{{animal.owner}}</p>
+  <p>{{animal.vet_id}}</p>
+  <p>{{animal.notes}}</p>
+  <p><a href="/animals/{{animal.id}}/edit">Edit Animal</a></p>
+  <p><a href="/animals/{{animal.id}}/delete">Delete Animal</a></p>
+</div>
+
+{% endblock %}

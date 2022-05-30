@@ -3,7 +3,7 @@ body {
   font-size: 16px;
 }
 
-/* label {
+label {
   display: inline-block;
   float: left;
   clear: left;
@@ -11,10 +11,10 @@ body {
   text-align: right;
 }
 
-input {
+input select {
   display: inline-block;
   float: left;
-} */
+}
 
 .task {
   border: 1px solid #ccc;

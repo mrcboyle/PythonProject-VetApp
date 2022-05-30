@@ -16,6 +16,7 @@ CREATE TABLE animals (
   animal_type VARCHAR,
   notes TEXT,
   owner VARCHAR,
+    -- Can reintroduce this id I manage to get to extensions and the owner class.
     -- FOREIGN KEY  (owner_id)
     --   REFERENCES owners(id) ON DELETE CASCADE,
   vet_id INTEGER NOT NULL,

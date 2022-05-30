@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h4>Add an Animal</h4>
+<h4>Edit Animal</h4>
 
 <form action="/animals" method="post">
 
@@ -22,7 +22,7 @@
 
   <!-- Form: Owner -->
   <label for="owner">Owner</label>
-  <input type="text" name="owner" id="owner">
+  <input type="text" name="owner" id="owner" placeholder="">
   <br>
 
   <!-- Form: Vet -->
@@ -38,7 +38,7 @@
   <label for="notes">Notes</label>
   <textarea name="notes" id="notes" cols="30" rows="5"></textarea>
   <br>
-  <input class="btn btn--action" type='submit' value="Add Animal">
+  <input class="btn btn--action" type='submit' value="Save Changes">
   <br>
 </form>
 

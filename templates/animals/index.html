@@ -16,7 +16,7 @@
   {% for animal in animals %}
   <tr>
 
-    <td>{{animal.name}}</td>
+    <td><a href="/animals/{{animal.id}}">{{animal.name}}</a></td>
     <td>{{animal.animal_type}}</td>
     <td>{{animal.dob}}</td>
     <td>{{animal.owner}}</td>
