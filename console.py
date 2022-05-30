@@ -7,7 +7,7 @@ import repositories.vet_repository as vet_repository
 import repositories.animal_repository as animal_repository
 import repositories.owner_repository as owner_repository
 
-owner_repository.delete_all()
+# owner_repository.delete_all()
 # animal_repository.delete_all()
 # vet_repository.delete_all()
 
@@ -50,8 +50,8 @@ for animal in animal_repository.select_all():
 # owner4 = Owner("Barbara Woodhouse","woodybabs@outlook.com")
 # owner_repository.save(owner4)
 
-# for owner in owner_repository.select_all():
-#     print(owner.__dict__)
+for owner in owner_repository.select_all():
+    print(owner.__dict__)
 
 # READ Test
 

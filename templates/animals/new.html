@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block content %}
+
+<form action="/tasks" method="post">
+  <div>
+    <label for="name">Animal Name:</label>
+    <input type="text" id="name" name="name" placeholder="Animal Name" required autofocus>
+  </div>
+
+  <div>
+    <label for="animal_type ">Animal Type:</label>
+    <input type="text" id="animal_type " name="animal_type " placeholder="Animal Type" required>
+  </div>
+
+  <div>
+    <label for="date_of_birth">Date of Birth:</label>
+    <input type="text" id="date_of_birth" name="date_of_birth" placeholder="Date of Birth" required>
+  </div>
+
+  <div>
+    <label for="owner ">Owner:</label>
+    <input type="text" id="owner " name="owner " placeholder="owner" required>
+  </div>
+
+  <div>
+    <label for="vet">Vet:</label>
+    <select id="vet" name="vet_id">
+      {% for vet in vets %}
+      <option value="{{ vet.id }}">{{ vet.name }}</option>
+      {% endfor %}
+    </select>
+  </div>
+
+  <div>
+    <label for="notes ">Notes:</label>
+    <input type="text" id="notes " name="notes " placeholder="notes" required>
+  </div>
+
+  <button type="submit">Add Animal</button>
+
+</form>
+
+{% endblock %}

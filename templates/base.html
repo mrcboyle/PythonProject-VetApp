@@ -5,7 +5,6 @@
   <title>Vet Surgery</title>
   <link href="https://fonts.googleapis.com/css?family=Merriweather|Special+Elite" rel="stylesheet">
 
-
   <link rel="stylesheet" href="{{ url_for('static', filename='css/buttons.css') }}">
   <link rel="stylesheet" href="{{ url_for('static', filename='css/forms.css') }}">
   <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
@@ -13,26 +12,25 @@
 </head>
 
 <body>
-  <main class="flex flex--row">
+  <header>
     <nav>
-      <ul>
-        <li>
-          <a href="/vets">Vets</a>
-        </li>
-        <li>
-          <a href="/animals">Animals</a>
-        </li>
-        <li>
+      <ul class="menu">
+        <li><a href="/">Home</a></li>
+        <li><a href="/vets">Vets</a></li>
+        <li><a href="/animals">Animals</a></li>
+        <li><a href="/animals/new">Add Animal</a></li>
+        <!-- <li>
           <a href="/owners">Owners</a>
-        </li>
+        </li> -->
       </ul>
     </nav>
-    <section id="content">
-      {% block content %}
+  </header>
+  <section id="content">
+    {% block content %}
 
-      {% endblock%}
-    </section>
-  </main>
+    {% endblock%}
+  </section>
+
 </body>
 
 </html>
