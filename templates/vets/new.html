@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h4>Add an Vet</h4>
+
+<form action="/vets" method="post">
+
+  <!-- Form: Vet Name -->
+  <label for="name">Name of Vet</label>
+  <input type="text" name="name" id="name">
+  <br>
+
+  <!-- Form: Button -->
+  <input class="btn btn--action" type='submit' value="Add Vet">
+  <br>
+</form>
+
+{% endblock %}

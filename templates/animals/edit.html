@@ -7,22 +7,22 @@
 
   <!-- Form: Animal Name -->
   <label for="animal_name">Name of Animal</label>
-  <input type="text" name="animal_name" id="animal_name">
+  <input type="text" name="animal_name" id="animal_name" value="{{animal.name}}" required autofocus>
   <br>
 
   <!-- Form: Animal Type -->
   <label for="animal_type">Type of Animal</label>
-  <input type="text" name="animal_type" id="animal_type">
+  <input type="text" name="animal_type" id="animal_type" value="{{animal.animal_type}}" required autofocus>
   <br>
 
   <!-- Form: Date of Birth -->
   <label for="date_of_birth">Date of Birth</label>
-  <input type="text" name="date_of_birth" id="date_of_birth">
+  <input type="text" name="date_of_birth" id="date_of_birth" value="{{animal.dob}}" required autofocus>
   <br>
 
   <!-- Form: Owner -->
   <label for="owner">Owner</label>
-  <input type="text" name="owner" id="owner" placeholder="">
+  <input type="text" name="owner" id="owner" value="{{animal.owner}}" required autofocus>
   <br>
 
   <!-- Form: Vet -->
@@ -36,8 +36,10 @@
 
   <!-- Form: Notes -->
   <label for="notes">Notes</label>
-  <textarea name="notes" id="notes" cols="30" rows="5"></textarea>
+  <textarea name="notes" id="notes" cols="30" rows="5" value="{{animal.notes}}" required autofocus></textarea>
   <br>
+
+  <!-- Form: Button -->
   <input class="btn btn--action" type='submit' value="Save Changes">
   <br>
 </form>

@@ -18,7 +18,6 @@ def new_animal():
     vets = vet_repository.select_all()
     return render_template("animals/new.html", vets = vets)
 
-# Having trouble with the root below. 
 @animals_blueprint.route("/animals",  methods=['POST'])
 def create_animal():
     name            = request.form['name']
@@ -31,13 +30,10 @@ def create_animal():
     animal_repository.save(animal)
     return redirect('/animals')
 
-
 @animals_blueprint.route("/animals/<id>", methods=['GET'])
 def show_animal(id):
     animal = animal_repository.select(id)
-
     return render_template('animals/show.html', animal = animal)
-
 
 # EDIT
 # GET '/animals/<id>/edit'
@@ -45,18 +41,18 @@ def show_animal(id):
 def edit_animal(id):
     animal = animal_repository.select(id)
     vets = vet_repository.select_all()
-    return render_template('animals/edit.html', animal = animal, all_vets = vets)
+    return render_template('animals/edit.html', animal = animal, vets = vets)
 
 # UPDATE
 # PUT '/animals/<id>'
-@animals_blueprint.route("/animals/<id>", methods=['POST'])
+@animals_blueprint.route("/animals/edit/<id>", methods=['POST'])
 def update_animals(id):
     name            = request.form['name']
     date_of_birth   = request.form['date_of_birth']
     animal_type     = request.form['animal_type']
     notes           = request.form['notes']
     owner           = request.form['owner']
-    vet             = vet_repository.select(request.form['vet_id'])
+    vet             = vet_repository.select(request.form['vet_name'])
     animal          = Animal(name, date_of_birth, animal_type, notes, owner, vet)
     animal_repository.update(animal)
     return redirect('/animals')

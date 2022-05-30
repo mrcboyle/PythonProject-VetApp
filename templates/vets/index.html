@@ -10,8 +10,15 @@
   </tr>
   {% for vet in vets %}
   <tr>
-    <td>{{vet.name}}</td>
+    <td>{{vet.name}}
+      <div class="buttons">
+        <form class="delete-form" action="/vets/delete/{{vet.id}}" method="POST">
+          <button class="trash-button"><i class="fa fa-trash-o fa-3x" style="color:grey"
+              aria-hidden="true"></i></button>
+        </form>
+      </div>
   </tr>
+  </td>
   {% endfor %}
 </table>
 {% endblock %}
