@@ -2,13 +2,13 @@
 {% block content %}
 
 <div>
-  <p>{{animal.name}}</p>
+  <p>Name: {{animal.name}}</p>
   <hr>
-  <p>{{animal.animal_type}}</p>
-  <p>{{animal.dob}}</p>
-  <p>{{animal.owner}}</p>
-  <p>{{animal.vet_id}}</p>
-  <p>{{animal.notes}}</p>
+  <p>Animal Type: {{animal.animal_type}}</p>
+  <p>Date of Birth: {{animal.dob}}</p>
+  <p>Owner Email: {{animal.owner}}</p>
+  <p>Vet: {{animal.vet_id}}</p>
+  <p>Notes: {{animal.notes}}</p>
   <p><a href="/animals/{{animal.id}}/edit">Edit Animal</a></p>
   <p><a href="/animals/{{animal.id}}/delete">Delete Animal</a></p>
 </div>

@@ -14,4 +14,4 @@ def vets():
 def show(id):
     vet = vet_repository.select(id)
     animals = vet_repository.animals(vet)
-    return render_template("vets/show.html", vet=vet, locations=animals)
+    return render_template("vets/show.html", vet=vet, animals=animals)

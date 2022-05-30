@@ -29,7 +29,7 @@
   <label for="vet">Select a vet:</label>
   <select name="vet_id" id="vet">
     {% for vet in vets %}
-    <option value="{{ vet.id }}">{{ vet.name }}</option>
+    <option value="{{ vet.name }}">{{ vet.name }}</option>
     {% endfor %}
   </select>
   <br>
