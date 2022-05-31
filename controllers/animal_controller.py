@@ -10,7 +10,7 @@ animals_blueprint = Blueprint("animals", __name__)
 @animals_blueprint.route("/animals")
 def animals():
     animals = animal_repository.select_all()
-    vets = vet_repository.select_all()
+    vets    = vet_repository.select_all()
     return render_template("animals/index.html", animals = animals, vets = vets)
 
 @animals_blueprint.route("/animals/new", methods=['GET'])
@@ -45,14 +45,15 @@ def edit_animal(id):
 
 # UPDATE
 # PUT '/animals/<id>'
-@animals_blueprint.route("/animals/edit/<id>", methods=['POST'])
+# @animals_blueprint.route("/animals/edit/<id>", methods=['POST'])
+@animals_blueprint.route("/animals", methods=['POST'])
 def update_animals(id):
     name            = request.form['name']
     date_of_birth   = request.form['date_of_birth']
     animal_type     = request.form['animal_type']
     notes           = request.form['notes']
     owner           = request.form['owner']
-    vet             = vet_repository.select(request.form['vet_name'])
+    vet             = vet_repository.select_by_name(request.form['vet_name'])
     animal          = Animal(name, date_of_birth, animal_type, notes, owner, vet)
     animal_repository.update(animal)
     return redirect('/animals')

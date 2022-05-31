@@ -16,11 +16,9 @@ CREATE TABLE animals (
   animal_type VARCHAR,
   notes TEXT,
   owner VARCHAR,
-    -- Can reintroduce this id I manage to get to extensions and the owner class.
-    -- FOREIGN KEY  (owner_id)
-    --   REFERENCES owners(id) ON DELETE CASCADE,
   vet_id INTEGER NOT NULL,
     FOREIGN KEY  (vet_id)
+    -- On Delete Cascade (below) allows me to remove a Vet even if they have animals assigned. It results in ay assigned animals also being deleted first
       REFERENCES vets(id) ON DELETE CASCADE
 );
 
@@ -31,6 +29,7 @@ CREATE TABLE owners (
 
 );
 
+-- Seed the database with some data
 INSERT INTO vets (name) VALUES ("Dr Jones");
 INSERT INTO vets (name) VALUES ("Dr Herriot");
 INSERT INTO vets (name) VALUES ("Dr Dolittle");

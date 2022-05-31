@@ -43,7 +43,8 @@ def select(id):
 
 def update(animal):
     sql = "UPDATE animals SET (name, dob, animal_type, notes, owner, vet_id) = ( ?, ?, ?, ?, ?, ?) WHERE id = ?"
-    values = [animal.name, animal.id]
+    # values = [animal.name, animal.id]
+    values = [animal.name, animal.dob, animal.animal_type, animal.notes, animal.owner, animal.vet.id]    
     run_sql(sql, values)
 
 # DELETE
