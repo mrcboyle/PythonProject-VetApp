@@ -6,14 +6,14 @@
   <link href="https://fonts.googleapis.com/css?family=Merriweather|Special+Elite" rel="stylesheet">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
     crossorigin="anonymous">
+
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-  <!-- <link rel="stylesheet" href="{{ url_for('static', filename='css/buttons.css') }}">
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/forms.css') }}">
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/tables.css') }}"> -->
 </head>
 
 <body>
   <header>
+
+    <!-- <img url='/static/images/logo.png'> -->
     <nav>
       <ul class="menu">
         <li><a href="/">Home</a></li>
@@ -24,6 +24,7 @@
       </ul>
     </nav>
   </header>
+
   <section id="content">
     {% block content %}
 

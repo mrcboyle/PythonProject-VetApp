@@ -18,6 +18,7 @@ def new_animal():
     vets = vet_repository.select_all()
     return render_template("animals/new.html", vets = vets)
 
+# The POST part below is the data retrieved from the GET above
 @animals_blueprint.route("/animals",  methods=['POST'])
 def create_animal():
     name            = request.form['name']
@@ -46,8 +47,8 @@ def edit_animal(id):
 # UPDATE
 # PUT '/animals/<id>'
 # @animals_blueprint.route("/animals/edit/<id>", methods=['POST'])
-@animals_blueprint.route("/animals", methods=['POST'])
-def update_animals(id):
+@animals_blueprint.route("/animals/<id>", methods=['POST'])
+def update_animal(id):
     name            = request.form['name']
     date_of_birth   = request.form['date_of_birth']
     animal_type     = request.form['animal_type']
