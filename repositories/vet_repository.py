@@ -11,7 +11,7 @@ def save(vet):
     values = [vet.name]
     results = run_sql(sql, values)
     id = results[0]['id']
-    # what does this part do????????    
+
     vet.id = id
     return vet
 
@@ -64,5 +64,4 @@ def delete_all():
 def delete(id):
     sql = "DELETE FROM vets WHERE id = ?"
     values = [id]
-    # if values = id (above) why don't we just return id in the run_sql below?
     run_sql(sql, values)

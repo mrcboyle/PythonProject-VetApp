@@ -3,7 +3,7 @@
 
 <h4>Edit Animal</h4>
 
-<form action="/animals" method="post">
+<form action="/animals/{{animal.id}}" method="post">
 
   <!-- Form: Animal Name -->
   <label for="animal_name">Name of Animal</label>
@@ -26,10 +26,10 @@
   <br>
 
   <!-- Form: Vet -->
-  <label for="vet">Select a vet:</label>
-  <select name="vet_id" id="vet">
+  <label for="vet_name">Select a vet:</label>
+  <select name="vet_name" id="vet">
     {% for vet in vets %}
-    <option value="{{ vet.id }}">{{ vet.name }}</option>
+    <option value="{{ vet.name }}">{{ vet.name }}</option>
     {% endfor %}
   </select>
   <br>

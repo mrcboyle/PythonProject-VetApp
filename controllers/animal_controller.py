@@ -21,7 +21,7 @@ def new_animal():
 # The POST part below is the data retrieved from the GET above
 @animals_blueprint.route("/animals",  methods=['POST'])
 def create_animal():
-    name            = request.form['name']
+    name            = request.form['animal_name']
     date_of_birth   = request.form['date_of_birth']
     animal_type     = request.form['animal_type']
     notes           = request.form['notes']
@@ -49,7 +49,7 @@ def edit_animal(id):
 # @animals_blueprint.route("/animals/edit/<id>", methods=['POST'])
 @animals_blueprint.route("/animals/<id>", methods=['POST'])
 def update_animal(id):
-    name            = request.form['name']
+    name            = request.form['animal_name']
     date_of_birth   = request.form['date_of_birth']
     animal_type     = request.form['animal_type']
     notes           = request.form['notes']

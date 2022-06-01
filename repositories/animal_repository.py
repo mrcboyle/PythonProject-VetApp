@@ -3,6 +3,7 @@ from models.animal import Animal
 from models.owner import Owner
 from models.vet import Vet
 import repositories.animal_repository as animal_repository
+import repositories.vet_repository as vet_repository
 
 # CREATE
 
@@ -25,7 +26,10 @@ def select_all():
 
     for row in results:
         # convert to python format below
-        animal = Animal(row['name'], row['dob'], row['animal_type'], row['notes'], row['owner'], row['vet_id'], row['id'])
+        # We have to tell Animals what the vet data is (thanks Nadia!)
+        vet = vet_repository.select(row['vet_id'])
+        # Then below, we pass in the variable vet (above) into the array. This allow the html to see the Vet name and id.
+        animal = Animal(row['name'], row['dob'], row['animal_type'], row['notes'], row['owner'], vet, row['id'])
         animals.append(animal)
     return animals
 
@@ -34,17 +38,19 @@ def select(id):
     sql = "SELECT * FROM animals WHERE id = ?"
     values = [id]
     result = run_sql(sql, values)[0]
-
+    # Again, we have to tell Animals what the vet data is  
+    vet = vet_repository.select(result['vet_id'])
     if result is not None:
-        animal = Animal(result['name'], result['dob'], result['animal_type'], result['notes'], result['owner'], result['vet_id'], result['id'])
+        # And pass the variable in below again, instead of the normal result. 
+        animal = Animal(result['name'], result['dob'], result['animal_type'], result['notes'], result['owner'], vet, result['id'])
     return animal
 
 # UPDATE
 
 def update(animal):
     sql = "UPDATE animals SET (name, dob, animal_type, notes, owner, vet_id) = ( ?, ?, ?, ?, ?, ?) WHERE id = ?"
-    # values = [animal.name, animal.id]
-    values = [animal.name, animal.dob, animal.animal_type, animal.notes, animal.owner, animal.vet.id]    
+
+    values = [animal.name, animal.dob, animal.animal_type, animal.notes, animal.owner, animal.vet.id, animal.id]    
     run_sql(sql, values)
 
 # DELETE
